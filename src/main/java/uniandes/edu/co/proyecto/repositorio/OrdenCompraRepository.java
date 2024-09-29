@@ -9,8 +9,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.OrdenDeCompra;
+import uniandes.edu.co.proyecto.modelo.OrdenDeCompraPK;
 
-public interface OrdenCompraRepository extends JpaRepository<OrdenDeCompra, Integer> {
+public interface OrdenCompraRepository extends JpaRepository<OrdenDeCompra, OrdenDeCompraPK> {
 
     @Query(value = "SELECT * FROM orden_de_compra", nativeQuery = true)
     Collection<OrdenDeCompra> findAllOrdenesCompra();

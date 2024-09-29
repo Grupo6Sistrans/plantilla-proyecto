@@ -2,19 +2,15 @@ package uniandes.edu.co.proyecto.modelo;
 
 import java.util.Date;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 
 @Entity
 @Table(name = "ordenes_de_compra")
 public class OrdenDeCompra {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer codigo;
+    @EmbeddedId
+    private OrdenDeCompraPK id;
 
     private Date fechaCreacion;
     private Date fechaEntrega;
@@ -24,18 +20,19 @@ public class OrdenDeCompra {
         // Default constructor
     }
 
-    public OrdenDeCompra(Date fechaCreacion, Date fechaEntrega, String estado) {
+    public OrdenDeCompra(OrdenDeCompraPK id, Date fechaCreacion, Date fechaEntrega, String estado) {
+        this.id = id;
         this.fechaCreacion = fechaCreacion;
         this.fechaEntrega = fechaEntrega;
         this.estado = estado;
     }
 
-    public Integer getCodigo() {
-        return codigo;
+    public OrdenDeCompraPK getId() {
+        return id;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public void setId(OrdenDeCompraPK id) {
+        this.id = id;
     }
 
     public Date getFechaCreacion() {
@@ -65,7 +62,7 @@ public class OrdenDeCompra {
     @Override
     public String toString() {
         return "OrdenDeCompra{" +
-                "codigo=" + codigo +
+                "id=" + id +
                 ", fechaCreacion=" + fechaCreacion +
                 ", fechaEntrega=" + fechaEntrega +
                 ", estado='" + estado + '\'' +

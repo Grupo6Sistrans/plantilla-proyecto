@@ -1,17 +1,14 @@
 package uniandes.edu.co.proyecto.modelo;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "inventario_de_productos")
 public class InventarioDeProducto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @EmbeddedId
+    private InventarioDeProductoPK id;
 
     private Integer costoPromedio;
     private Integer cantidad;
@@ -22,18 +19,19 @@ public class InventarioDeProducto {
         // Default constructor
     }
 
-    public InventarioDeProducto(Integer costoPromedio, Integer cantidad, Integer capacidad, Integer nivelMinimoReorden) {
+    public InventarioDeProducto(InventarioDeProductoPK id, Integer costoPromedio, Integer cantidad, Integer capacidad, Integer nivelMinimoReorden) {
+        this.id = id;
         this.costoPromedio = costoPromedio;
         this.cantidad = cantidad;
         this.capacidad = capacidad;
         this.nivelMinimoReorden = nivelMinimoReorden;
     }
 
-    public Integer getId() {
+    public InventarioDeProductoPK getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(InventarioDeProductoPK id) {
         this.id = id;
     }
 

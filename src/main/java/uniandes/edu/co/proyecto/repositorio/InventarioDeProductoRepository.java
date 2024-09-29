@@ -9,8 +9,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.InventarioDeProducto;
+import uniandes.edu.co.proyecto.modelo.InventarioDeProductoPK;
 
-public interface InventarioDeProductoRepository extends JpaRepository<InventarioDeProducto, Integer> {
+public interface InventarioDeProductoRepository extends JpaRepository<InventarioDeProducto, InventarioDeProductoPK> {
 
     @Query(value = "SELECT * FROM inventario_de_producto", nativeQuery = true)
     Collection<InventarioDeProducto> findAllInventarios();

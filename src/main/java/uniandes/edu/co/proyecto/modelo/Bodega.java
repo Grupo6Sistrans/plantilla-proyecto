@@ -1,43 +1,31 @@
 package uniandes.edu.co.proyecto.modelo;
 
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "bodegas")
 public class Bodega {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    @EmbeddedId
+    private BodegaPK nombre;
 
-    private String nombre;
     private Integer tamano;
 
     public Bodega() {
-        // Default constructor
+        
     }
 
-    public Bodega(String nombre, Integer tamano) {
+    public Bodega(BodegaPK nombre, Integer tamano) {
         this.nombre = nombre;
         this.tamano = tamano;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
+    public BodegaPK getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(BodegaPK nombre) {
         this.nombre = nombre;
     }
 
@@ -52,8 +40,7 @@ public class Bodega {
     @Override
     public String toString() {
         return "Bodega{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
+                "nombre=" + nombre +
                 ", tamano=" + tamano +
                 '}';
     }

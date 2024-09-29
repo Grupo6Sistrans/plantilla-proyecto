@@ -9,9 +9,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import uniandes.edu.co.proyecto.modelo.Bodega;
+import uniandes.edu.co.proyecto.modelo.BodegaPK;
 
 
-public interface BodegaRepository extends JpaRepository<Bodega, Integer> {
+public interface BodegaRepository extends JpaRepository<Bodega, BodegaPK> {
 
     
     @Query(value = "SELECT * FROM bodega", nativeQuery = true)
