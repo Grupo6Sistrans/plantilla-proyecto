@@ -12,7 +12,7 @@ public class RecepcionDeProductoPK implements Serializable {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "bodega_nombre", referencedColumnName = "nombre.nombreBodega") 
+    @JoinColumn(name = "bodega_nombre", referencedColumnName = "nombre") 
     private Bodega bodega;
 
     @ManyToOne

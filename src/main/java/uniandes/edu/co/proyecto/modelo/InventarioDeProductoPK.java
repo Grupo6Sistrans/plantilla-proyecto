@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 @Embeddable
 public class InventarioDeProductoPK implements Serializable {
     @ManyToOne
-    @JoinColumn(name = "bodega_nombre", referencedColumnName = "nombre.nombreBodega") 
+    @JoinColumn(name = "bodega_nombre", referencedColumnName = "nombre") 
     private Bodega bodega;
 
     @ManyToOne
@@ -25,16 +25,6 @@ public class InventarioDeProductoPK implements Serializable {
     @JoinColumn(name = "producto_codigoDeBarras", referencedColumnName = "codigoDeBarras")
     private Producto producto;
 
-    public InventarioDeProductoPK() {
-        
-    }
-
-    public InventarioDeProductoPK(Bodega bodega, Sucursal sucursal, Ciudad ciudad, Producto producto) {
-        this.bodega = bodega;
-        this.sucursal = sucursal;
-        this.ciudad = ciudad;
-        this.producto = producto;
-    }
 
     public Bodega getBodega() {
         return bodega;
@@ -74,9 +64,9 @@ public class InventarioDeProductoPK implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         InventarioDeProductoPK that = (InventarioDeProductoPK) o;
         return Objects.equals(bodega, that.bodega) &&
-               Objects.equals(sucursal, that.sucursal) &&
-               Objects.equals(ciudad, that.ciudad) &&
-               Objects.equals(producto, that.producto);
+                Objects.equals(sucursal, that.sucursal) &&
+                Objects.equals(ciudad, that.ciudad) &&
+                Objects.equals(producto, that.producto);
     }
 
     @Override

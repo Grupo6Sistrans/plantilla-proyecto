@@ -1,6 +1,8 @@
 package uniandes.edu.co.proyecto.modelo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,7 +21,11 @@ public class Producto {
     private Integer precioUnitario;
     private String presentacion;
     private Integer cantidadPresentacion;
-    private String unidadDeMedida;
+   
+
+    @Enumerated(EnumType.STRING)
+    private UnidadDeMedida unidadDeMedida;
+
     private Integer volumen;
     private Integer peso;
 
@@ -28,7 +34,7 @@ public class Producto {
     }
 
     public Producto(String codigoDeBarras, String nombre, Integer costoEnBodega, Integer precioUnitario, 
-                    String presentacion, Integer cantidadPresentacion, String unidadDeMedida, 
+                    String presentacion, Integer cantidadPresentacion, UnidadDeMedida unidadDeMedida, 
                     Integer volumen, Integer peso) {
         this.codigoDeBarras = codigoDeBarras;
         this.nombre = nombre;
@@ -97,11 +103,11 @@ public class Producto {
         this.cantidadPresentacion = cantidadPresentacion;
     }
 
-    public String getUnidadDeMedida() {
+    public UnidadDeMedida getUnidadDeMedida() {
         return unidadDeMedida;
     }
-
-    public void setUnidadDeMedida(String unidadDeMedida) {
+    
+    public void setUnidadDeMedida(UnidadDeMedida unidadDeMedida) {
         this.unidadDeMedida = unidadDeMedida;
     }
 

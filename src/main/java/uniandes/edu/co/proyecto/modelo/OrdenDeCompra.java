@@ -4,6 +4,8 @@ import java.util.Date;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,13 +16,15 @@ public class OrdenDeCompra {
 
     private Date fechaCreacion;
     private Date fechaEntrega;
-    private String estado;
+
+    @Enumerated(EnumType.STRING)
+    private EstadoCompra estado;
 
     public OrdenDeCompra() {
-        // Default constructor
+        
     }
 
-    public OrdenDeCompra(OrdenDeCompraPK id, Date fechaCreacion, Date fechaEntrega, String estado) {
+    public OrdenDeCompra(OrdenDeCompraPK id, Date fechaCreacion, Date fechaEntrega, EstadoCompra estado) {
         this.id = id;
         this.fechaCreacion = fechaCreacion;
         this.fechaEntrega = fechaEntrega;
@@ -51,11 +55,11 @@ public class OrdenDeCompra {
         this.fechaEntrega = fechaEntrega;
     }
 
-    public String getEstado() {
+    public EstadoCompra getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoCompra estado) {
         this.estado = estado;
     }
 
@@ -65,7 +69,7 @@ public class OrdenDeCompra {
                 "id=" + id +
                 ", fechaCreacion=" + fechaCreacion +
                 ", fechaEntrega=" + fechaEntrega +
-                ", estado='" + estado + '\'' +
+                ", estado=" + estado +
                 '}';
     }
 }
