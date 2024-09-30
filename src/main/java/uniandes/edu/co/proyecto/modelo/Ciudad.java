@@ -9,15 +9,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "ciudades")
 public class Ciudad {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigo;
-
     private String nombre;
 
-    public Ciudad() {
-        // Default constructor
-    }
+    public Ciudad() {;}
 
     public Ciudad(String nombre) {
         this.nombre = nombre;

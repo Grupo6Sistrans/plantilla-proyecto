@@ -6,6 +6,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,6 +17,9 @@ public class OrdenDeCompra {
 
     private Date fechaCreacion;
     private Date fechaEntrega;
+
+    @ManyToOne
+    private Proveedor proveedor;
 
     @Enumerated(EnumType.STRING)
     private EstadoCompra estado;
