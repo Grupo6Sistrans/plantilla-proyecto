@@ -9,15 +9,12 @@ import jakarta.persistence.ManyToOne;
 
 @Embeddable
 public class BodegaPK implements Serializable {
+    
     private String nombreBodega;
 
     @ManyToOne
     @JoinColumn(name = "sucursal_nombre", referencedColumnName = "nombre")
     private Sucursal sucursal;
-
-    @ManyToOne
-    @JoinColumn(name = "ciudad_codigo", referencedColumnName = "codigo")
-    private Ciudad ciudad;
 
     public BodegaPK() {
         

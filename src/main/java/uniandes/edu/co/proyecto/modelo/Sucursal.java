@@ -1,20 +1,16 @@
 package uniandes.edu.co.proyecto.modelo;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "sucursales")
 public class Sucursal {
+    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
     private String nombre;
-    private Integer tamano;
+    private Integer tamanio;
     private String direccion;
     private Integer telefono;
 
@@ -22,19 +18,11 @@ public class Sucursal {
         // Default constructor
     }
 
-    public Sucursal(String nombre, Integer tamano, String direccion, Integer telefono) {
+    public Sucursal(String nombre, Integer tamanio, String direccion, Integer telefono) {
         this.nombre = nombre;
-        this.tamano = tamano;
+        this.tamanio = tamanio;
         this.direccion = direccion;
         this.telefono = telefono;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -45,12 +33,12 @@ public class Sucursal {
         this.nombre = nombre;
     }
 
-    public Integer getTamano() {
-        return tamano;
+    public Integer gettamanio() {
+        return tamanio;
     }
 
-    public void setTamano(Integer tamano) {
-        this.tamano = tamano;
+    public void settamanio(Integer tamanio) {
+        this.tamanio = tamanio;
     }
 
     public String getDireccion() {
@@ -72,9 +60,8 @@ public class Sucursal {
     @Override
     public String toString() {
         return "Sucursal{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", tamano=" + tamano +
+                "nombre='" + nombre + '\'' +
+                ", tamanio=" + tamanio +
                 ", direccion='" + direccion + '\'' +
                 ", telefono=" + telefono +
                 '}';

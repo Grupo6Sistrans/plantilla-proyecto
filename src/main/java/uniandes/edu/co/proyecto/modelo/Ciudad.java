@@ -12,7 +12,6 @@ public class Ciudad {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer codigo;
-
     private String nombre;
 
     public Ciudad() {
